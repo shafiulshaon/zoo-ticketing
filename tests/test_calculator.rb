@@ -137,7 +137,7 @@ class TestCalculator < Test::Unit::TestCase
     calculator = Calculator.new(tickets, @time_evening, !@is_holiday, @weekday[:tuesday])
     result = calculator.calculate
     assert_equal(10000, result[:base_total], "Base total should be 10000 yen")
-    assert_equal(8000, result[:final_total], "Final total should be 1200 yen with holiday surcharge")
+    assert_equal(8000, result[:final_total], "Final total should be 8000 yen with group and evening discount")
   end
 
   def test_holiday_surcharge
