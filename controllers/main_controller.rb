@@ -1,5 +1,5 @@
 # main_controller.rb
-require_relative 'input'
+require_relative 'input_controller'
 require_relative '../models/ticket'
 require_relative '../models/discount'
 require_relative '../models/calculator'

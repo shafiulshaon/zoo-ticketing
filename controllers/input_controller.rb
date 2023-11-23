@@ -1,4 +1,4 @@
-# input.rb
+# input_controller.rb
 require_relative '../helpers/helper'
 require_relative '../helpers/validation'
 
