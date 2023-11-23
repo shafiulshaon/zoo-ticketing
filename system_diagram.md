@@ -1,0 +1,83 @@
+
+## System Diagrams for CLI Ticket Sales Calculator
+
+### 1. High-Level Architecture Diagram
+
+This diagram provides an overview of the MVC architecture of your application.
+
+**Components**:
+- Models: `Ticket`, `Calculator`, `Discount`
+- Views: `OutputView`
+- Controllers: `InputController`, `MainController`
+- Helpers: `Validation`, `Helper` functions
+- External APIs: Google Calendar API (for holiday checks)
+
+**Diagram**:
+```
+ [ User ] 
+    |
+    v
+[ MainController ] --> [ InputController ] --> [ Helper Functions ]
+    |                         |
+    v                         v
+[ Calculator ] <-- [ Models ] [ Validation ]
+    |
+    v
+[ OutputView ] --> [ Views ]
+    |
+    v
+ [ Console Output ]
+```
+
+### 2. Sequence Diagram
+
+This diagram illustrates the flow of operations in your application, particularly focusing on how a user's input is processed and how output is generated.
+
+**Flow**:
+1. User starts the program, interacting with `MainController`.
+2. `MainController` calls `InputController` to gather user input.
+3. User input is validated and processed (possibly checking holidays via the Google Calendar API).
+4. `MainController` uses `Calculator` (Model) to process the data.
+5. Results are sent to `OutputView` (View) to display the final output to the user.
+
+**Diagram**:
+```
+User -> MainController: Starts Program
+MainController -> InputController: get_input()
+InputController -> Validation: validate_input()
+Validation --> InputController
+InputController -> MainController: return input_data
+MainController -> Calculator: calculate(input_data)
+Calculator --> MainController: return results
+MainController -> OutputView: show_output(results)
+OutputView --> User: Display Results
+```
+
+### 3. Class Diagram
+
+This diagram shows the relationships between different classes in your application.
+
+**Components**:
+- `Ticket`
+- `Calculator`
+- `Discount`
+- `InputController`
+- `MainController`
+- `OutputView`
+
+**Diagram**:
+```
+ [InputController]     [MainController]     [OutputView]
+       |                      |                  |
+       ------------------------
+                 |
+           [Calculator] <------ [Ticket]
+                 |
+           [Discount]
+```
+
+### Notes
+
+- The High-Level Architecture Diagram provides an overview of the system.
+- The Sequence Diagram details the interaction flow in the program.
+- The Class Diagram illustrates the relationships and dependencies between classes.
