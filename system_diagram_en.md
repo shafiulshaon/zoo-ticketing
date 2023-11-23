@@ -3,14 +3,13 @@
 
 ### 1. High-Level Architecture Diagram
 
-This diagram provides an overview of the MVC architecture of your application.
+This diagram provides an overview of the MVC architecture of the CLI program.
 
 **Components**:
 - Models: `Ticket`, `Calculator`, `Discount`
 - Views: `OutputView`
 - Controllers: `InputController`, `MainController`
 - Helpers: `Validation`, `Helper` functions
-- External APIs: Google Calendar API (for holiday checks)
 
 ```mermaid
 graph TD
@@ -26,12 +25,12 @@ graph TD
 
 ### 2. Sequence Diagram
 
-This diagram illustrates the flow of operations in your application, particularly focusing on how a user's input is processed and how output is generated.
+This diagram illustrates the flow of operations in the CLI program, particularly focusing on how a user's input is processed and how output is generated.
 
 **Flow**:
 1. User starts the program, interacting with `MainController`.
 2. `MainController` calls `InputController` to gather user input.
-3. User input is validated and processed (possibly checking holidays via the Google Calendar API).
+3. User input is validated and processed.
 4. `MainController` uses `Calculator` (Model) to process the data.
 5. Results are sent to `OutputView` (View) to display the final output to the user.
 
@@ -56,7 +55,7 @@ sequenceDiagram
 
 ### 3. Class Diagram
 
-This diagram shows the relationships between different classes in your application.
+This diagram shows the relationships between different classes in the CLI program.
 
 **Components**:
 - `Ticket`
